@@ -1,0 +1,349 @@
+:root {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #18304e;
+  background: #eaf4ff;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: .65; cursor: not-allowed; }
+button:focus-visible, input:focus-visible, select:focus-visible,
+summary:focus-visible, .tabla-resultados__contenedor:focus-visible {
+  outline: 3px solid #194ea3;
+  outline-offset: 3px;
+}
+
+.pagina {
+  min-height: 100vh;
+  padding: clamp(12px, 3vw, 36px);
+  background: radial-gradient(circle at 7% 12%, #fff0c2 0 8%, transparent 9%),
+              radial-gradient(circle at 93% 9%, #d6f2df 0 10%, transparent 11%),
+              #eaf4ff;
+}
+.tarjeta-principal {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 40px);
+  border: 1px solid #cbdff3;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 14px 36px #25476617;
+}
+.cabecera-aplicacion { text-align: center; }
+.etiqueta { margin: 0 0 8px; color: #26579d; font-size: 1rem; font-weight: 800; }
+h1 { margin: 0; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; }
+.descripcion { margin: 12px 0 0; color: #435a74; font-size: 1.1rem; line-height: 1.5; }
+.navegacion-vistas { display: flex; gap: 12px; justify-content: center; margin: 28px 0 0; }
+.navegacion-vistas__boton {
+  min-height: 56px;
+  padding: 12px 24px;
+  border: 2px solid #b9d3ef;
+  border-radius: 16px;
+  background: #f3f8ff;
+  color: #18304e;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+.navegacion-vistas__boton[aria-current="page"] {
+  border-color: #1d58a7;
+  background: #245fae;
+  color: #fff;
+}
+.navegacion-vistas__boton:hover:not([aria-current="page"]) { background: #e3efff; }
+
+.seleccion-nivel { margin-top: 30px; }
+.titulo-seccion { margin: 0 0 16px; text-align: center; font-size: 1.45rem; }
+.niveles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.boton-nivel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 156px;
+  padding: 18px;
+  border: 3px solid transparent;
+  border-radius: 22px;
+  color: #18304e;
+  text-align: center;
+}
+.boton-preprimario { background: #dff4e7; }
+.boton-primario { background: #fff0cc; }
+.boton-nivel:hover { border-color: #678bb8; }
+.boton-nivel[aria-pressed="true"] { border-color: #245fae; box-shadow: 0 0 0 3px #dceaff; }
+.icono-nivel { margin-bottom: 6px; font-size: 2rem; line-height: 1.15; }
+.nombre-nivel { font-size: 1.45rem; font-weight: 800; }
+.detalle-nivel { margin-top: 6px; font-size: 1rem; line-height: 1.35; }
+.mensaje { margin: 16px 0 0; padding: 12px 18px; border-radius: 14px; background: #f1f6fd; text-align: center; }
+
+.seleccion-estudiante, .resumen-estudiante, .catalogo-actividades,
+.reporte-docente { margin-top: 32px; padding-top: 28px; border-top: 1px solid #d4e2f1; }
+.resumen-estudiante { text-align: center; }
+.resumen-estudiante h2 { margin: 0 0 12px; font-size: 1.65rem; }
+.resumen-estudiante p { margin: 7px 0; font-size: 1.05rem; line-height: 1.5; }
+.acciones-estudiante { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 16px; }
+.formulario-edad { max-width: 440px; margin: 20px auto 0; }
+.formulario-estudiante { margin-top: 24px; padding-top: 24px; border-top: 1px solid #d4e2f1; }
+.formulario-estudiante h2 { text-align: center; }
+.campo-formulario { display: flex; flex-direction: column; gap: 8px; margin: 0 0 18px; text-align: left; }
+.campo-formulario label { font-weight: 700; }
+.campo-formulario input, .campo-formulario select {
+  width: 100%; min-height: 54px; padding: 10px 14px;
+  border: 2px solid #b5cce5; border-radius: 12px; background: #fff; color: #18304e;
+}
+.boton-principal, .boton-secundario {
+  min-height: 56px; padding: 12px 22px; border: 0; border-radius: 14px;
+  font-size: 1.08rem; font-weight: 750;
+}
+.boton-principal { background: #245fae; color: #fff; }
+.boton-principal:hover:not(:disabled) { background: #194d95; }
+.boton-secundario { background: #e4eefb; color: #18304e; }
+.boton-secundario:hover:not(:disabled) { background: #d3e4f8; }
+.error-formulario { padding: 12px; border-radius: 12px; background: #fff0ee; color: #982419; text-align: left; }
+
+.catalogo-actividades { text-align: left; }
+.catalogo-actividades h2 { margin: 0 0 20px; text-align: center; font-size: 1.7rem; }
+.catalogo-actividades > .boton-secundario { margin-bottom: 12px; }
+.lista-actividades { display: grid; gap: 16px; }
+.tarjeta-actividad { padding: clamp(18px, 3vw, 28px); border: 2px solid #d2e2f5; border-radius: 20px; background: #f7fbff; }
+.tarjeta-actividad h2 { margin: 0 0 20px; }
+.tarjeta-actividad h3 { margin: 0 0 10px; font-size: 1.3rem; line-height: 1.35; }
+.tarjeta-actividad p { margin: 8px 0; line-height: 1.5; }
+.lista-actividades > .tarjeta-actividad { border-left: 7px solid #6baedc; }
+.lista-actividades > .tarjeta-actividad:nth-child(3n + 2) { border-left-color: #f4ad4e; background: #fffcf4; }
+.lista-actividades > .tarjeta-actividad:nth-child(3n + 3) { border-left-color: #80b789; background: #f7fcf8; }
+.lista-actividades .boton-principal { display: block; width: 100%; margin-top: 18px; }
+.tarjeta-actividad > .boton-principal { display: block; width: 100%; margin-top: 14px; }
+.opciones-juego { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+.opciones-juego .boton-secundario { flex: 1 1 130px; min-height: 64px; }
+
+.escena-juguetes, .escenario-figura, .operacion-juego {
+  margin: 22px 0; border: 2px solid #b8cfe9; border-radius: 20px; background: #ebf6ff;
+}
+.escena-juguetes { position: relative; width: 100%; height: clamp(220px, 32vw, 300px); overflow: hidden; }
+.escena-juguetes__referencia {
+  position: absolute; display: flex; align-items: flex-end; justify-content: center;
+  color: #17324d; font-weight: 800;
+}
+.escena-juguetes__objeto { position: absolute; z-index: 1; font-size: clamp(54px, 8vw, 76px); line-height: 1; }
+.escena-juguetes--dentro .escena-juguetes__referencia { left: 35%; top: 38%; width: 30%; height: 48%; border: 8px solid #a86c3d; border-top: 0; background: #e8bc87; }
+.escena-juguetes--dentro .escena-juguetes__objeto { left: 50%; top: 45%; transform: translateX(-50%); }
+.escena-juguetes--arriba .escena-juguetes__referencia { left: 20%; top: 64%; width: 60%; height: 16px; border-radius: 5px; background: #a86c3d; }
+.escena-juguetes--arriba .escena-juguetes__referencia span { position: absolute; top: 20px; }
+.escena-juguetes--arriba .escena-juguetes__objeto { left: 50%; top: 26%; transform: translateX(-50%); }
+.escena-juguetes--lejos .escena-juguetes__referencia { left: 8%; top: 43%; width: 25%; height: 43%; border: 8px solid #a86c3d; border-top: 0; background: #e8bc87; }
+.escena-juguetes--lejos .escena-juguetes__objeto { right: 9%; top: 44%; }
+.escena-juguetes--debajo .escena-juguetes__referencia { left: 25%; top: 30%; width: 50%; height: 52%; border-top: 16px solid #a86c3d; border-left: 9px solid #a86c3d; border-right: 9px solid #a86c3d; }
+.escena-juguetes--debajo .escena-juguetes__referencia span { position: absolute; top: -42px; }
+.escena-juguetes--debajo .escena-juguetes__objeto { left: 50%; top: 55%; transform: translateX(-50%); }
+.escenario-figura { display: flex; align-items: center; justify-content: center; min-height: 260px; }
+.figura { background: #e98355; }
+.figura--circulo { width: 130px; height: 130px; border-radius: 50%; }
+.figura--cuadrado { width: 130px; height: 130px; }
+.figura--rectangulo { width: 180px; height: 105px; }
+.figura--triangulo { width: 0; height: 0; border-right: 80px solid transparent; border-bottom: 145px solid #e98355; border-left: 80px solid transparent; background: transparent; }
+.tablero-memoria { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; max-width: 560px; margin: 20px auto; }
+.tarjeta-memoria {
+  display: flex; align-items: center; justify-content: center; aspect-ratio: 1;
+  min-width: 0; padding: 8px; overflow: hidden; border: 2px solid #315d94;
+  border-radius: 14px; background: #dceaf9; color: #17324d; font-size: 2rem;
+}
+.tarjeta-memoria--visible { background: #fff; }
+.tarjeta-memoria img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.operacion-juego { padding: 28px 16px; text-align: center; font-size: clamp(2rem, 6vw, 3.5rem); font-weight: 800; }
+
+.reporte-docente { text-align: left; }
+.reporte-docente__encabezado { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.reporte-docente h2 { margin: 0 0 16px; font-size: 1.65rem; }
+.reporte-docente__encabezado p { margin: 0 0 16px; color: #435a74; }
+.aviso-reporte { margin: 28px 0; padding: 20px; border-radius: 16px; background: #f1f6fd; text-align: center; }
+.tabla-resultados__contenedor { overflow-x: auto; border: 1px solid #cbdff1; border-radius: 16px; }
+.tabla-resultados { width: 100%; min-width: 680px; border-collapse: collapse; text-align: left; }
+.tabla-resultados th, .tabla-resultados td { padding: 14px; border-bottom: 1px solid #e0eaf5; vertical-align: top; }
+.tabla-resultados thead { background: #e5f0fc; }
+.tabla-resultados tbody tr:nth-child(even) { background: #f5f9fe; }
+.tabla-resultados tbody tr:last-child th, .tabla-resultados tbody tr:last-child td { border-bottom: 0; }
+.tabla-resultados td:last-child { white-space: nowrap; }
+.herramientas-desarrollo { margin-top: 32px; border-top: 1px solid #d4e2f1; padding-top: 18px; text-align: left; }
+.herramientas-desarrollo summary { cursor: pointer; color: #3c5675; font-weight: 700; }
+.comprobacion-servidor { margin-top: 16px; }
+.comprobacion-servidor h2 { font-size: 1.2rem; }
+.respuesta-servidor { padding: 14px; border-radius: 12px; background: #f1f5fa; }
+.respuesta-servidor--conectado { background: #e1f4e7; color: #205c37; }
+.respuesta-servidor--error { background: #fff0ee; color: #9c2920; }
+
+@media (max-width: 600px) {
+  .tarjeta-principal { padding: 20px 16px; }
+  .niveles { grid-template-columns: 1fr; }
+  .boton-nivel { min-height: 118px; }
+  .navegacion-vistas { flex-wrap: wrap; }
+  .navegacion-vistas__boton { flex: 1 1 170px; }
+  .opciones-juego .boton-secundario { flex-basis: 120px; }
+  .tablero-memoria { gap: 7px; }
+  .tarjeta-memoria { padding: 4px; border-radius: 9px; }
+}
+.operacion-fracciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 3vw, 26px);
+  min-height: 180px;
+  margin: 20px 0;
+  padding: 18px;
+  border: 2px solid #b8cfe9;
+  border-radius: 20px;
+  background: #ebf6ff;
+  color: #18304e;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 800;
+}
+
+.fraccion {
+  display: inline-flex;
+  min-width: 1.2em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.05;
+  vertical-align: middle;
+}
+
+.fraccion > span:first-child {
+  width: 100%;
+  padding: 0 .14em .12em;
+  border-bottom: .08em solid currentColor;
+  text-align: center;
+}
+
+.fraccion > span:last-child {
+  padding-top: .12em;
+}
+
+.opciones-fracciones .boton-secundario {
+  display: inline-flex;
+  min-height: 86px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+}
+
+.retroalimentacion-juego {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #e1f4e7;
+  font-weight: 700;
+}
+.pagina--jugando {
+  padding: clamp(8px, 2vw, 20px);
+}
+
+.pagina--jugando .tarjeta-principal {
+  max-width: 900px;
+  padding: clamp(16px, 3vw, 28px);
+}
+
+.cabecera-juego {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 16px;
+  border: 2px solid #f1cf78;
+  border-radius: 18px;
+  background: #fff9e9;
+  text-align: left;
+}
+
+.cabecera-juego__icono {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.cabecera-juego p {
+  margin: 0 0 2px;
+  color: #526276;
+  font-size: 1rem;
+}
+
+.cabecera-juego h1 {
+  margin: 0;
+  font-size: clamp(1.45rem, 4vw, 2rem);
+}
+
+.pagina--jugando .catalogo-actividades {
+  margin-top: 14px;
+  padding-top: 0;
+  border-top: 0;
+}
+
+.pagina--jugando .catalogo-actividades > .boton-secundario {
+  display: block;
+  min-height: 56px;
+  margin: 0 0 14px auto;
+  background: #ffe4df;
+  color: #812c27;
+}
+
+.pagina--jugando .catalogo-actividades > .boton-secundario:hover {
+  background: #ffd2c9;
+}
+
+.pagina--jugando .tarjeta-actividad {
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.pagina--jugando .opciones-juego .boton-secundario {
+  min-height: 64px;
+}
+
+@media (max-width: 600px) {
+  .cabecera-juego { gap: 10px; padding: 10px 12px; }
+  .cabecera-juego__icono { font-size: 2rem; }
+  .pagina--jugando .catalogo-actividades > .boton-secundario { width: 100%; }
+}
+.pagina {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #eaf4ff;
+}
+
+.pagina::before,
+.pagina::after {
+  content: "";
+  position: fixed;
+  inset: -40px;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+
+.pagina::before {
+  opacity: .64;
+  background-size: 480px 360px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='360'%3E%3Cpath d='M32 4 38 23 58 23 42 35 48 54 32 43 16 54 22 35 6 23 26 23Z' fill='%23ffd77b'/%3E%3Cpath d='M32 4 38 23 58 23 42 35 48 54 32 43 16 54 22 35 6 23 26 23Z' transform='translate(220 165) scale(.72)' fill='%23b6d7f5'/%3E%3Cpath d='M32 4 38 23 58 23 42 35 48 54 32 43 16 54 22 35 6 23 26 23Z' transform='translate(385 65) scale(.55)' fill='%23d0e9b8'/%3E%3C/svg%3E");
+  animation: desplazar-estrellas 24s ease-in-out infinite alternate;
+}
+
+.pagina::after {
+  opacity: .48;
+  background-size: 560px 420px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='420'%3E%3Cpath d='M32 4 38 23 58 23 42 35 48 54 32 43 16 54 22 35 6 23 26 23Z' transform='translate(130 75) scale(.45)' fill='%23f6b9ba'/%3E%3Cpath d='M32 4 38 23 58 23 42 35 48 54 32 43 16 54 22 35 6 23 26 23Z' transform='translate(360 245) scale(.8)' fill='%23f8d890'/%3E%3C/svg%3E");
+  animation: desplazar-estrellas 32s ease-in-out infinite alternate-reverse;
+}
+
+.pagina > .tarjeta-principal {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes desplazar-estrellas {
+  from { transform: translate3d(-12px, 8px, 0); }
+  to { transform: translate3d(16px, -16px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pagina::before,
+  .pagina::after { animation: none; }
+}
